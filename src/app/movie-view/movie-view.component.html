@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ data.movie }}</title>
+  </head>
+  <body>
+    <mat-card class="movie-view-container">
+      <mat-card-header>
+        <mat-card-title>{{ data.movie.Title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>({{ data.movie.ReleaseYear }})</p>
+        <p>Genre: {{ data.movie.Genre.GenreName }}</p>
+        <p>Director: {{ data.movie.Director.Name }}</p>
+        <p>Description: {{ data.movie.Description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </body>
+</html>

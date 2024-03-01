@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Bar</title>
+  </head>
+  <body>
+    <mat-toolbar class="navbar" role="heading">
+      <span class="navbar-logo">
+        <button mat-button (click)="openMovies()">myFlix</button>
+      </span>
+      <span class="navbar-icons">
+        <button
+          class="nav-icon-button movies"
+          mat-icon-button
+          (click)="openMovies()"
+          aria-label="icon-button for movies"
+        >
+          <mat-icon>local_movies</mat-icon>
+        </button>
+        <button
+          class="nav-icon-button profile"
+          mat-icon-button
+          (click)="openProfile()"
+          aria-label="icon-button for profile"
+        >
+          <mat-icon>person_outline</mat-icon>
+        </button>
+        <button
+          class="nav-icon-button logout"
+          mat-icon-button
+          (click)="logoutUser()"
+          aria-label="icon-button for logout"
+        >
+          <mat-icon>logout</mat-icon>
+        </button>
+      </span>
+    </mat-toolbar>
+  </body>
+</html>

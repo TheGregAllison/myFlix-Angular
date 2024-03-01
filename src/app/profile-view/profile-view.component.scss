@@ -1,0 +1,153 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+}
+
+.profile-header {
+  display: block;
+  margin-bottom: 20px;
+}
+
+mat-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+// User Data **********************
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.user-data-title:hover {
+  opacity: 100%;
+  cursor: default;
+}
+
+.user-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.profile-card-header {
+  font-size: large;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-data {
+  justify-content: center;
+}
+
+.user-card img {
+  padding: 5px;
+  object-fit: cover;
+  object-position: 100% 0;
+  border-radius: 15px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.actions button {
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 20%;
+}
+
+// Favorite Movies **********************
+
+.movie-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  padding-bottom: 20px;
+}
+
+.movie-card {
+  margin: 10px;
+  width: 300px;
+  flex: 0 0 auto;
+  height: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.movie-card img {
+  height: 450px;
+  object-fit: cover;
+}
+
+.movie-card img:hover {
+  opacity: 85%;
+  scale: 102%;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+
+.mat-card-header {
+  flex: 0 0 auto;
+}
+
+mat-card-title {
+  font-weight: 500;
+  font-size: large;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  margin-top: 10px;
+}
+
+.movie-card-title:hover {
+  opacity: 60%;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+
+.movieYear {
+  margin-top: 10px;
+}
+
+mat-card-actions {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.no-favs {
+  display: flex;
+  justify-content: center;
+}
+
+// Update Profile Form **********************
+
+.form-inputs {
+  padding-top: 5px;
+}
+
+.edit-userdata-card {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+}

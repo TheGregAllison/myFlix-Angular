@@ -1,0 +1,66 @@
+.movie-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  padding-bottom: 50px;
+  width: 90%;
+}
+
+.movie-card {
+  margin: 10px;
+  width: 300px;
+  flex: 0 0 auto;
+  height: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.movie-card img {
+  height: 450px;
+  object-fit: cover;
+}
+
+.movie-card img:hover {
+  opacity: 85%;
+  scale: 102%;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+
+.mat-card-header {
+  flex: 0 0 auto;
+}
+
+mat-card-title {
+  font-weight: 500;
+  font-size: large;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  margin-top: 10px;
+}
+
+mat-card-title:hover {
+  opacity: 60%;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+
+.mat-card-header {
+  align-items: baseline;
+}
+
+.movieYear {
+  margin-top: 10px;
+}
+
+mat-card-actions {
+  color: black;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}

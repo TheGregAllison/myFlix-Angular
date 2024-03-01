@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: black; 
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.navbar-logo:hover {
+  transform: translate(5px);
+  transition-duration: 200ms;
+}
+
+.logout:hover,
+.movies:hover,
+.profile:hover {
+  transform: scale(1.2);
+}
+
+.logout,
+.movies,
+.profile {
+  margin: 5px;
+  transition-duration: 200ms;
+}
+
+.logout:focus,
+.movies:focus,
+.profile:focus {
+  margin: 5px;
+  transition-duration: 200ms;
+}

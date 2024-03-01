@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to myFlix</title>
+  </head>
+  <body>
+    <div class="main-page">
+      <h1>Welcome to myFlix!</h1>
+      <p>Log in or sign up to get started.</p>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openUserLoginDialog()"
+        style="margin-right: 10px"
+      >
+        Login
+      </button>
+      <button
+        mat-raised-button
+        (click)="openUserRegistrationDialog()"
+        style="margin-right: 10px"
+        color="primary"
+      >
+        Sign Up
+      </button>
+    </div>
+  </body>
+</html>
