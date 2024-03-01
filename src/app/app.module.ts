@@ -29,6 +29,7 @@ import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
 import { MovieViewComponent } from './movie-view/movie-view.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     MovieViewComponent,
     NavBarComponent,
     ProfileViewComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

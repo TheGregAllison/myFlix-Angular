@@ -1,4 +1,4 @@
-# myFlix Angular Client
+# myFlix Angular App
 
 This project was created with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0, aimed at providing a client-side interface for the myFlix app, which leverages a server-side REST API and database to present a collection of movies to users.
 

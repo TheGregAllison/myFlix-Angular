@@ -7,6 +7,7 @@ import { MovieViewComponent } from '../movie-view/movie-view.component';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -71,29 +72,38 @@ export class ProfileViewComponent implements OnInit {
   }
 
   deleteUser(): void {
-    const confirmation = confirm(
-      'Are you sure you want to delete your account?'
-    );
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        title: 'Delete Account',
+        message: 'Are you sure you want to delete your account?',
+        buttonText: {
+          ok: 'Delete',
+          cancel: 'Cancel',
+        },
+      },
+    });
 
-    if (confirmation) {
-      this.fetchApiData.deleteUser().subscribe(
-        (result) => {
-          console.log(result);
-          this.router.navigate(['welcome']).then(() => {
-            localStorage.clear();
-            this.snackBar.open('Account successfully deleted.', 'OK', {
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.fetchApiData.deleteUser().subscribe(
+          () => {
+            console.log('Account deleted successfully.');
+            this.router.navigate(['welcome']).then(() => {
+              localStorage.clear();
+              this.snackBar.open('Account successfully deleted.', 'OK', {
+                duration: 2000,
+              });
+            });
+          },
+          (error) => {
+            console.error('Error deleting account:', error);
+            this.snackBar.open('Failed to delete account', 'OK', {
               duration: 2000,
             });
-          });
-        },
-        (error) => {
-          console.error('Error deleting account:', error);
-          this.snackBar.open('Failed to delete account', 'OK', {
-            duration: 2000,
-          });
-        }
-      );
-    }
+          }
+        );
+      }
+    });
   }
 
   getMovies(): void {
