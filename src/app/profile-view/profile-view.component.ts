@@ -25,6 +25,7 @@ export class ProfileViewComponent implements OnInit {
   user: any = {};
   movies: any[] = [];
   FavoriteMovies: any[] = [];
+  accountDeleted = false;
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -72,39 +73,31 @@ export class ProfileViewComponent implements OnInit {
   }
 
   deleteUser(): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: {
-        title: 'Delete Account',
-        message: 'Are you sure you want to delete your account?',
-        buttonText: {
-          ok: 'Delete',
-          cancel: 'Cancel',
-        },
-      },
+    this.router.navigate(['welcome']).then(() => {
+      localStorage.clear();
+      this.snackBar.open('User successfully deleted.', 'OK', {
+        duration: 2000,
+      });
     });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.fetchApiData.deleteUser().subscribe(
-          () => {
-            console.log('Account deleted successfully.');
-            this.router.navigate(['welcome']).then(() => {
-              localStorage.clear();
-              this.snackBar.open('Account successfully deleted.', 'OK', {
-                duration: 2000,
-              });
-            });
-          },
-          (error) => {
-            console.error('Error deleting account:', error);
-            this.snackBar.open('Failed to delete account', 'OK', {
-              duration: 2000,
-            });
-          }
-        );
-      }
+    this.fetchApiData.deleteUser().subscribe((result) => {
+      console.log(result);
     });
   }
+
+  // NOT IN USE AT THE MOMENT
+  // private confirmDeleteUser(): Promise<void> {
+  //   return new Promise<void>((resolve, reject) => {
+  //     this.fetchApiData.deleteUser().subscribe(
+  //       () => {
+  //         console.log('Account deleted successfully.');
+  //         resolve();
+  //       },
+  //       (error) => {
+  //         reject(error);
+  //       }
+  //     );
+  //   });
+  // }
 
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
