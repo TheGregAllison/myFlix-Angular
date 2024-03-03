@@ -5,6 +5,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+/**
+ * @description Component representing the registration form.
+ * @selector 'app-user-registration-form'
+ * @templateUrl './user-registration-form.component.html'
+ * @styleUrls ['./user-registration-form.component.scss']
+ */
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
@@ -13,6 +19,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class UserRegistrationFormComponent implements OnInit {
   registrationForm: FormGroup;
 
+  /**
+   * @constructor - Constructor for UserRegistrationFormComponent.
+   * @param {FetchApiDataService} fetchApiData - Service for fetching data from the API.
+   * @param {MatDialogRef<UserRegistrationFormComponent>} dialogRef - Service for opening dialogs.
+   * @param {MatSnackBar} snackBar - Service for displaying notifications.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
@@ -30,6 +42,10 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Function responsible for sending the form inputs to the server.
+   * @returns Message 'Your account has been created and you have been logged in!' / error message.
+   */
   registerUser(): void {
     if (this.registrationForm.valid) {
       this.fetchApiData.userRegistration(this.registrationForm.value).subscribe(

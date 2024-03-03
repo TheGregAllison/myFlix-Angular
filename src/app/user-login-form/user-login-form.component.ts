@@ -4,6 +4,12 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
+/**
+ * @description Component representing the login form.
+ * @selector 'app-user-login-form'
+ * @templateUrl './user-login-form.component.html'
+ * @styleUrls ['./user-login-form.component.scss']
+ */
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -12,6 +18,13 @@ import { Router } from '@angular/router';
 export class UserLoginFormComponent implements OnInit {
   @Input() userData = { Username: '', Password: '' };
 
+  /**
+   * @constructor
+   * @param {FetchApiDataService} fetchApiData - Service for fetching data from the API.
+   * @param {MatDialogRef<UserLoginFormComponent>} dialogRef - service for opening user login dialog.
+   * @param {MatSnackBar} snackBar - Service for displaying notifications.
+   * @param {Router} router - Routing service for navigation.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -21,6 +34,10 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Function responsible for sending the form inputs to the backend.
+   * @returns Message "Login Successful!" / Error message ({result}
+   */
   LoginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (result) => {

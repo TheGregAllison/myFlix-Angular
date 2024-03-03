@@ -1,6 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatCard } from '@angular/material/card';
+
+/**
+ * @description Modal displaying director details.
+ * @selector 'app-director-info'
+ * @templateUrl './director-info.component.html'
+ * @styleUrls ['./director-info.component.scss']
+ */
 
 @Component({
   selector: 'app-director-view',
@@ -8,7 +14,10 @@ import { MatCard } from '@angular/material/card';
   styleUrl: './director-view.component.scss',
 })
 export class DirectorViewComponent implements OnInit {
-  // birthDateWithoutTime: Date;
+  /**
+   * @constructor - Constructor for DirectorViewComponent.
+   * @param - Director Information.
+   */
 
   constructor(
     @Inject(MAT_DIALOG_DATA)

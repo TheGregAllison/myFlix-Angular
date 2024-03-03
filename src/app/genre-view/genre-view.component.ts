@@ -1,6 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+/**
+ * @description Modal displaying genre information.
+ * @selector 'app-genre-view'
+ * @templateUrl './genre-view.component.html'
+ * @styleUrls ['./genre-view.component.scss']
+ */
 @Component({
   selector: 'app-genre-view',
   templateUrl: './genre-view.component.html',

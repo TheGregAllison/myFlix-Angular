@@ -7,10 +7,16 @@ import { MovieViewComponent } from '../movie-view/movie-view.component';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+// import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
+/**
+ * @description Component representing the user profile view.
+ * @selector 'app-profile-view'
+ * @templateUrl './profile-view.component.html'
+ * @styleUrls ['./profile-view.component.scss']
+ */
 @Component({
-  selector: 'app-user-profile',
+  selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
   styleUrls: ['./profile-view.component.scss'],
 })
@@ -27,6 +33,14 @@ export class ProfileViewComponent implements OnInit {
   FavoriteMovies: any[] = [];
   accountDeleted = false;
 
+  /**
+   * @constructor - Constructor for ProfileViewComponent.
+   * @param {FetchApiDataService} fetchApiData - Service for fetching data from the API.
+   * @param {MatSnackBar} snackBar - Service for displaying notifications.
+   * @param {Router} router - Routing service for navigation.
+   * @param {MatDialog} dialog - Service for opening dialogs.
+   */
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
@@ -38,6 +52,10 @@ export class ProfileViewComponent implements OnInit {
     this.getProfile();
   }
 
+  /**
+   * Function for getting user.
+   * @returns user's username, email, birthday, and favorite movies array.
+   */
   getProfile(): void {
     this.user = this.fetchApiData.getUser();
     this.userData.Username = this.user.Username;
@@ -54,6 +72,10 @@ export class ProfileViewComponent implements OnInit {
     this.getProfile();
   }
 
+  /**
+   * Function for updating user information.
+   * @returns Message "User update successful" / "Failed to update user"
+   */
   updateUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       (result) => {
@@ -72,6 +94,10 @@ export class ProfileViewComponent implements OnInit {
     );
   }
 
+  /**
+   * Function to delete user profile.
+   * @returns Message "User successfully deleted."
+   */
   deleteUser(): void {
     this.router.navigate(['welcome']).then(() => {
       localStorage.clear();
@@ -99,6 +125,10 @@ export class ProfileViewComponent implements OnInit {
   //   });
   // }
 
+  /**
+   * Function for getting all movies.
+   * @returns All movies.
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -107,6 +137,13 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Function that will open the dialog when director button is clicked.
+   * @param {string} name - Name of the director.
+   * @param {string} bio - Biography of the director.
+   * @param {date} birth - Date of birth of the director.
+   * @returns Directors name, bio, and date of birth.
+   */
   openDirectorDialog(name: string, bio: string, birth: string): void {
     this.dialog.open(DirectorViewComponent, {
       data: {
@@ -118,6 +155,12 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Function that will open the genre dialog.
+   * @param {string} name - Name of the genre.
+   * @param {string} description - Description of the genre.
+   * @returns Genre name and discription.
+   */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
       data: {
@@ -128,6 +171,12 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Function that will open the movie synopsis dialog
+   * @param {string} title - Title of the movie.
+   * @param {string} description - Description of the movie.
+   * @returns Title and description of the movie.
+   */
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisViewComponent, {
       data: {
@@ -137,6 +186,11 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to check if movie is a in user's favorites array.
+   * @param movie  - Movie object to check.
+   * @returns {boolean} - Boolean indicating whether the movie is present in favorites list.
+   */
   isFav(movie: any): any {
     const MovieID = movie._id;
     if (this.FavoriteMovies.some((movie) => movie._id === MovieID)) {
@@ -146,11 +200,20 @@ export class ProfileViewComponent implements OnInit {
     }
   }
 
+  /**
+   * Function to update favorite icon based on status of movie in favorites array.
+   * @param {any} movie - Movie to be favorited/unfavorited.
+   */
   toggleFav(movie: any): void {
     const isFavorite = this.isFav(movie);
     isFavorite ? this.deleteFavMovie(movie) : this.addFavMovie(movie);
   }
 
+  /**
+   * Function to append movie to favMovie list
+   * @param {any} movie - Movie to added to user's favorite movies array.
+   * @returns Message "Movie has been added to your favorites!"
+   */
   addFavMovie(movie: any): void {
     this.user = this.fetchApiData.getUser();
     this.userData.Username = this.user.Username;
@@ -163,6 +226,11 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to delete movie from user's favorite movies array.
+   * @param {any} movie - Movie to delete from favorite movies.
+   * @returns Message "Movie has been deleted from your favorites!"
+   */
   deleteFavMovie(movie: any): void {
     this.user = this.fetchApiData.getUser();
     this.userData.Username = this.user.Username;
@@ -176,6 +244,11 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to display movie view modal.
+   * @param {any} movie - movie details
+   * @returns Movie modal containing movie details,
+   */
   openMovieView(movie: any): void {
     this.dialog.open(MovieViewComponent, {
       data: { movie: movie },
