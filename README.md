@@ -1,14 +1,14 @@
-# myFlix Angular App
+# myFlix Angular
 
 This project was created with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0, aimed at providing a client-side interface for the myFlix app, which leverages a server-side REST API and database to present a collection of movies to users.
 
 ## UI Screenshot
 
-<img width="500" alt="Screenshot 2024-02-29 at 1 36 46 PM" src="https://github.com/TheGregAllison/myFlix-Angular-App/assets/146021687/2e124c9a-ddcd-4a78-826c-e6cd246ac0dd">
+<img width="500" alt="Screenshot 2024-02-29 at 1 36 46 PM" src="https://github.com/TheGregAllison/myFlix-Angular/assets/146021687/2ae80437-09a4-4ff0-aff3-622a1913c65a">
 
 ## Description
 
-The myFlix Angular Client allows users to access information about different movies, directors, and genres. Users can sign up, log in, view movie details, and manage their favorite movies list.
+The myFlix Angular client allows users to access information about different movies, directors, and genres. Users can sign up, log in, view movie details, and manage their favorite movies list.
 
 ## Features
 
@@ -43,8 +43,8 @@ This project uses data from the `Node-Movie-API` available at: https://github.co
 
 ## Installation
 
-1. Clone this repository: `git clone https://github.com/TheGregAllison/myFlix-Angular-App`
-2. Navigate to the project directory: `cd myFlix-Angular-App`
+1. Clone this repository: `git clone https://github.com/TheGregAllison/myFlix-Angular`
+2. Navigate to the project directory: `cd myFlix-Angular`
 3. Install dependencies: `npm install`
 
 ## Running the Application Locally
